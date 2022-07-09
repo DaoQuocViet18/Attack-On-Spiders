@@ -20,7 +20,7 @@ public class Move : MonoBehaviour
 
         if (CompareTag("capsule"))
         {
-            int speed = Random.Range(-20, 21);
+            int speed = Random.Range(-30, 31);
             transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
     }
