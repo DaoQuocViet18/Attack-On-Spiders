@@ -13,6 +13,15 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+        if (CompareTag("cube"))
+        {
+            transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+        } 
+
+        if (CompareTag("capsule"))
+        {
+            int speed = Random.Range(-20, 21);
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+        }
     }
 }
