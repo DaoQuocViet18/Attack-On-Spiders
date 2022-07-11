@@ -12,8 +12,8 @@ public class Gun : MonoBehaviour
     [Header("settings")]
     public int maxAmmo;
     public float throwCooldown;
-    [SerializeReference] int currentAmmo;
-    [SerializeReference] bool isReloading = false;
+    [SerializeField] int currentAmmo;
+    [SerializeField] bool isReloading = false;
     public float reloatTime = 1f;
 
     [Header("Throwing")]
@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
     public float ThrowUpwardForce;
 
     [Header("Particle")]
+    public Animator animator;
     public ParticleSystem effect;
 
     bool readyToThrow;
@@ -31,6 +32,12 @@ public class Gun : MonoBehaviour
         readyToThrow = true;
 
         currentAmmo = maxAmmo;
+    }
+
+    private void OnEnable()
+    {
+        isReloading = false;
+        animator.SetBool("Reloading", false);
     }
 
     private void Update()
@@ -75,25 +82,31 @@ public class Gun : MonoBehaviour
         }
 
         // add Force
-        Vector3 forceToAdd = cam.transform.forward * throwForce + transform.up * ThrowUpwardForce;
+        Vector3 forceToAdd = forceDirection * throwForce + transform.up * ThrowUpwardForce;
 
         projectleRb.AddForce(forceToAdd, ForceMode.Impulse);
-
-        maxAmmo--;
 
         // implement throwCoolDown
         Invoke(nameof(ResetThrow), throwCooldown);
     }
 
+  
+    
     void ResetThrow()
     {
         readyToThrow = true;
     }
 
+
+    
+    
     IEnumerator Reloat()
     {
         isReloading = true;
-        yield return new WaitForSeconds(reloatTime);
+        animator.SetBool("Reloading", true);
+        yield return new WaitForSeconds(reloatTime - 0.25f);
+        animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(0.25f);
         currentAmmo = maxAmmo;
         isReloading = false;
     }   

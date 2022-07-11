@@ -387,16 +387,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
-  attackpoint: {fileID: 1097119530}
+  attackpoint: {fileID: 2106961527}
   objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  maxAmmo: 0
+  maxAmmo: 50
   throwCooldown: 0.25
   currentAmmo: 0
-  isReading: 0
+  isReloading: 0
   reloatTime: 1
   throwKey: 323
   throwForce: 70
   ThrowUpwardForce: 0
+  animator: {fileID: 714895826}
   effect: {fileID: 1459366622}
 --- !u!1 &377519541
 GameObject:
@@ -512,11 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4166463531722480, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4166463531722480, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_LocalScale.x
@@ -580,6 +581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
+--- !u!198 &602906145 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7569578751195575292, guid: 1fad835bc3f8d624cb8de51e256afc21, type: 3}
+  m_PrefabInstance: {fileID: 1964063065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627583502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -749,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 714895824}
   - component: {fileID: 714895825}
+  - component: {fileID: 714895826}
   m_Layer: 0
   m_Name: WeaponsHolder
   m_TagString: Untagged
@@ -763,13 +770,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714895823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1875812619}
   - {fileID: 330026645}
+  - {fileID: 1875812619}
   - {fileID: 1666537126}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
@@ -787,6 +794,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+--- !u!95 &714895826
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714895823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7383f4d5b00550f4aa0d7aba8f5f75ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &728639547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4054100971495624, guid: 57bf5071e0a1c8947b8918a8f96184a6, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4054100971495624, guid: 57bf5071e0a1c8947b8918a8f96184a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1165,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1481417426184300, guid: 0460a539b95c36d43a61b9c176cdca57, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4751045806602334, guid: 0460a539b95c36d43a61b9c176cdca57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1646,17 +1673,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
-  attackpoint: {fileID: 1097119530}
-  objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  maxAmmo: 0
+  attackpoint: {fileID: 1609376970}
+  objectToThrow: {fileID: 2089236514962639905, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+  maxAmmo: 5
   throwCooldown: 1
   currentAmmo: 0
-  isReading: 0
+  isReloading: 0
   reloatTime: 1
   throwKey: 323
   throwForce: 140
   ThrowUpwardForce: 0
-  effect: {fileID: 1459366622}
+  animator: {fileID: 714895826}
+  effect: {fileID: 2112490614}
 --- !u!1 &1875812618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1374600452982646, guid: 57bf5071e0a1c8947b8918a8f96184a6, type: 3}
@@ -1681,16 +1709,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
   attackpoint: {fileID: 1097119530}
-  objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  maxAmmo: 0
+  objectToThrow: {fileID: 1656161627183566596, guid: 2e9580044d4fafa43a4feabac907cffe, type: 3}
+  maxAmmo: 16
   throwCooldown: 0.25
   currentAmmo: 0
-  isReading: 0
+  isReloading: 0
   reloatTime: 1
   throwKey: 323
   throwForce: 40
   ThrowUpwardForce: 0
-  effect: {fileID: 1459366622}
+  animator: {fileID: 714895826}
+  effect: {fileID: 602906145}
 --- !u!1001 &1964063065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1799,6 +1828,11 @@ Transform:
   m_Father: {fileID: 1875812619}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &2112490614 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7569578751195575292, guid: 1fad835bc3f8d624cb8de51e256afc21, type: 3}
+  m_PrefabInstance: {fileID: 627583502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7569578749824817442
 PrefabInstance:
   m_ObjectHideFlags: 0
