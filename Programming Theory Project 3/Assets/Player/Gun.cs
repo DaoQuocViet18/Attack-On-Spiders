@@ -9,9 +9,12 @@ public class Gun : MonoBehaviour
     public Transform attackpoint;
     public GameObject objectToThrow;
 
-    [Header("Settings")]
-    public int totalThrow;
+    [Header("settings")]
+    public int maxAmmo;
     public float throwCooldown;
+    [SerializeReference] int currentAmmo;
+    [SerializeReference] bool isReloading = false;
+    public float reloatTime = 1f;
 
     [Header("Throwing")]
     public KeyCode throwKey = KeyCode.Mouse0;
@@ -26,11 +29,22 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         readyToThrow = true;
+
+        currentAmmo = maxAmmo;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(throwKey) && readyToThrow && totalThrow > 0)
+        if (isReloading)
+            return;
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reloat());
+            return;   // stop here and not continue
+        }  
+
+        if (Input.GetKeyDown(throwKey) && readyToThrow && maxAmmo > 0)
         {
             Shoot();
         }
@@ -39,6 +53,8 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         readyToThrow = false;
+
+        currentAmmo--;
 
         effect.Play();
 
@@ -63,7 +79,7 @@ public class Gun : MonoBehaviour
 
         projectleRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        totalThrow--;
+        maxAmmo--;
 
         // implement throwCoolDown
         Invoke(nameof(ResetThrow), throwCooldown);
@@ -73,4 +89,12 @@ public class Gun : MonoBehaviour
     {
         readyToThrow = true;
     }
+
+    IEnumerator Reloat()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(reloatTime);
+        currentAmmo = maxAmmo;
+        isReloading = false;
+    }   
 }

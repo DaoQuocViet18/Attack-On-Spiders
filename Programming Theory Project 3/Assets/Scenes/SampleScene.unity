@@ -389,8 +389,11 @@ MonoBehaviour:
   cam: {fileID: 963194228}
   attackpoint: {fileID: 1097119530}
   objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  totalThrow: 100
+  maxAmmo: 0
   throwCooldown: 0.25
+  currentAmmo: 0
+  isReading: 0
+  reloatTime: 1
   throwKey: 323
   throwForce: 70
   ThrowUpwardForce: 0
@@ -1527,7 +1530,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa352205b5eb5704fb61c747eebce8e0, type: 2}
+  - {fileID: 2100000, guid: 09fe7908f0e44f949bf2bb19cb69ed9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1645,8 +1648,11 @@ MonoBehaviour:
   cam: {fileID: 963194228}
   attackpoint: {fileID: 1097119530}
   objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  totalThrow: 5
+  maxAmmo: 0
   throwCooldown: 1
+  currentAmmo: 0
+  isReading: 0
+  reloatTime: 1
   throwKey: 323
   throwForce: 140
   ThrowUpwardForce: 0
@@ -1676,8 +1682,11 @@ MonoBehaviour:
   cam: {fileID: 963194228}
   attackpoint: {fileID: 1097119530}
   objectToThrow: {fileID: 8873628399933536708, guid: 5452c12460eaa0642b643790f2503995, type: 3}
-  totalThrow: 16
+  maxAmmo: 0
   throwCooldown: 0.25
+  currentAmmo: 0
+  isReading: 0
+  reloatTime: 1
   throwKey: 323
   throwForce: 40
   ThrowUpwardForce: 0
