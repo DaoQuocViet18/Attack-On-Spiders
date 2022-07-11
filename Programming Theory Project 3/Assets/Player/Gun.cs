@@ -89,16 +89,11 @@ public class Gun : MonoBehaviour
         // implement throwCoolDown
         Invoke(nameof(ResetThrow), throwCooldown);
     }
-
-  
     
     void ResetThrow()
     {
         readyToThrow = true;
-    }
-
-
-    
+    }  
     
     IEnumerator Reloat()
     {
