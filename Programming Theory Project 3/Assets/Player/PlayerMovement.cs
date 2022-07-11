@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded = true;
+    bool grounded;
 
     private float HorizontalInput;
     private float forwardInput;
@@ -38,7 +38,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
         MoveInput();
+        SpeedControl();
+
+        // handle Drag
+        if (grounded)
+            PlayerRb.drag = groundDrag;
+        else
+            PlayerRb.drag = 0;
     }
 
     void FixedUpdate()
