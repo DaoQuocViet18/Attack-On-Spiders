@@ -14,19 +14,27 @@ public class Gun : MonoBehaviour
     public float throwCooldown;
     [SerializeField] int currentAmmo;
     [SerializeField] bool isReloading = false;
-    public float reloatTime = 1f;
+    float deadlineShoot = 1f;
+    float TimeShootGun;
+    public float reloatTime = 1.5f;
 
     [Header("Throwing")]
     public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
     public float ThrowUpwardForce;
+    private int FirstShoot = 0;
 
     [Header("Particle")]
+    WeaponsSwitching WS;
     public Animator animator;
     public ParticleSystem effect;
 
     bool readyToThrow;
 
+    private void Awake()
+    {
+        WS = GameObject.Find("WeaponsHolder").GetComponent<WeaponsSwitching>();
+    }
     private void Start()
     {
         readyToThrow = true;
@@ -45,15 +53,46 @@ public class Gun : MonoBehaviour
         if (isReloading)
             return;
 
+        if (WS.P_Changing)
+            return;
+
         if (currentAmmo <= 0)
         {
             StartCoroutine(Reloat());
             return;   // stop here and not continue
-        }  
+        }
+
+        inputShoot();
+    }
+
+    void inputShoot()
+    {
+        if (FirstShoot == 0)
+        {
+            TimeShootGun = Time.time + deadlineShoot;
+        }
+
 
         if (Input.GetKeyDown(throwKey) && readyToThrow && maxAmmo > 0)
         {
-            Shoot();
+            FirstShoot++;
+            if (FirstShoot == 1)
+            {
+                animator.SetBool("Shooting", true);
+                StartCoroutine(PrepapeShoot());
+            }
+            else
+                Shoot();
+        }
+        else if (Input.GetKeyUp(throwKey))
+        {
+            TimeShootGun = Time.time + deadlineShoot;
+        }
+
+        if (Time.time >= TimeShootGun)
+        {
+            animator.SetBool("Shooting", false);
+            FirstShoot = 0;
         }
     }
 
@@ -105,4 +144,10 @@ public class Gun : MonoBehaviour
         currentAmmo = maxAmmo;
         isReloading = false;
     }   
+
+    IEnumerator PrepapeShoot()
+    {
+        yield return new WaitForSeconds(0.18f);
+        Shoot();
+    }
 }
