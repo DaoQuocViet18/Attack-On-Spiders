@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float HorizontalInput;
     private float forwardInput;
 
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
     private Rigidbody PlayerRb;
 
     // Start is called before the first frame update
@@ -72,9 +72,9 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        moveDirection = (orientation.transform.forward * forwardInput + orientation.right * HorizontalInput).normalized;
+        moveDirection = orientation.transform.forward * forwardInput + orientation.right * HorizontalInput;
 
-        PlayerRb.AddForce(moveDirection * speed * 3.0f, ForceMode.Force);
+        PlayerRb.AddForce(moveDirection.normalized * speed * 3.0f, ForceMode.Force);
 
         if (grounded)
             PlayerRb.AddForce(moveDirection * speed * 3.0f, ForceMode.Force);

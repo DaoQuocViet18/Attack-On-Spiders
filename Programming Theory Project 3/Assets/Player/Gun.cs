@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     public float throwCooldown;
     [SerializeField] int currentAmmo;
     [SerializeField] bool isReloading = false;
-    float deadlineShoot = 1f;
+    float deadlineShoot = 2.5f;
     float TimeShootGun;
     public float reloatTime = 1.5f;
 
@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
     public float throwForce;
     public float ThrowUpwardForce;
     private int FirstShoot = 0;
+    [SerializeField] LayerMask layermask;
+    PlayerMovement PM;
 
     [Header("Particle")]
     WeaponsSwitching WS;
@@ -34,6 +36,7 @@ public class Gun : MonoBehaviour
     private void Awake()
     {
         WS = GameObject.Find("WeaponsHolder").GetComponent<WeaponsSwitching>();
+        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
     private void Start()
     {
@@ -50,6 +53,13 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
+        //RaycastHit hit;
+
+        //if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f))
+        //{
+        //    Debug.DrawRay(cam.transform.position, cam.transform.forward * hit.distance, Color.red);
+        //}
+        
         if (isReloading)
             return;
 
@@ -105,8 +115,7 @@ public class Gun : MonoBehaviour
         effect.Play();
 
         // imstantiate object to throw
-        GameObject projectite = Instantiate(objectToThrow, attackpoint.position, cam.rotation);
-
+        GameObject projectite = Instantiate(objectToThrow, attackpoint.position + PM.moveDirection, cam.rotation);
         // get rigidbody component
         Rigidbody projectleRb = projectite.GetComponent<Rigidbody>();
 
@@ -115,10 +124,12 @@ public class Gun : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 500f))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f , layermask))
         {
+       
             forceDirection = (hit.point - attackpoint.position).normalized;
         }
+
 
         // add Force
         Vector3 forceToAdd = forceDirection * throwForce + transform.up * ThrowUpwardForce;
