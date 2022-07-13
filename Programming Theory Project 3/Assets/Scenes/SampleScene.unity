@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51369907}
   - component: {fileID: 51369908}
+  - component: {fileID: 51369909}
   m_Layer: 6
   m_Name: Gear
   m_TagString: Untagged
@@ -201,6 +202,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappling: {fileID: 1897869276}
+--- !u!114 &51369909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51369906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b04cc5bc96bcb49984c98f81950ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &123205872
 GameObject:
   m_ObjectHideFlags: 0
