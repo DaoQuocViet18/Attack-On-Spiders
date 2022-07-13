@@ -53,13 +53,8 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        //RaycastHit hit;
+      
 
-        //if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f))
-        //{
-        //    Debug.DrawRay(cam.transform.position, cam.transform.forward * hit.distance, Color.red);
-        //}
-        
         if (isReloading)
             return;
 
@@ -115,7 +110,8 @@ public class Gun : MonoBehaviour
         effect.Play();
 
         // imstantiate object to throw
-        GameObject projectite = Instantiate(objectToThrow, attackpoint.position + PM.moveDirection, cam.rotation);
+        GameObject projectite = Instantiate(objectToThrow,new Vector3(100,100,100), cam.rotation);
+
         // get rigidbody component
         Rigidbody projectleRb = projectite.GetComponent<Rigidbody>();
 
@@ -134,6 +130,7 @@ public class Gun : MonoBehaviour
         // add Force
         Vector3 forceToAdd = forceDirection * throwForce + transform.up * ThrowUpwardForce;
 
+        projectite.transform.position = attackpoint.position;
         projectleRb.AddForce(forceToAdd, ForceMode.Impulse);
 
         // implement throwCoolDown
@@ -160,5 +157,22 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(0.18f);
         Shoot();
+    }
+
+    void Test()
+    {
+        RaycastHit hit;
+
+        Vector3 forceDirection = cam.transform.forward;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f))
+        {
+            Debug.DrawRay(cam.transform.position, cam.transform.forward * hit.distance, Color.red);
+            forceDirection = (hit.point - attackpoint.position).normalized;
+        }
+
+        Vector3 forceToAdd = forceDirection * throwForce;
+
+        Debug.DrawRay(attackpoint.transform.position, forceToAdd * hit.distance, Color.green);
     }
 }
