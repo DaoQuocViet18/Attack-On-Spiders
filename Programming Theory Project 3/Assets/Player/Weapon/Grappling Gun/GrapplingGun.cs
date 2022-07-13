@@ -5,11 +5,11 @@ using UnityEngine;
 public class GrapplingGun : MonoBehaviour
 {
     LineRenderer lr;
+    SpringJoint joint;
     Vector3 grapplePoint;
     public LayerMask whatIsGrappleable;
     public Transform guntip, cam, player;
     float maxDistance = 200f;
-    SpringJoint joint;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class GrapplingGun : MonoBehaviour
             // Change there value to fix your game
             joint.spring = 4.5f;
             joint.damper = 7f;
-            joint.maxDistance = 4.5f;
+            joint.massScale = 4.5f;
 
             lr.positionCount = 2;
         }
