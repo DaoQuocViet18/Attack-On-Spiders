@@ -7,9 +7,9 @@ public class GrapplingGun : MonoBehaviour
     LineRenderer lr;
     SpringJoint joint;
     Vector3 grapplePoint;
-    public LayerMask whatIsGrappleable;
+    [SerializeField] LayerMask whatIsGrappleable;
     public Transform guntip, cam, player;
-    float maxDistance = 200f;
+    float maxDistance = 300f;
 
     private void Awake()
     {
@@ -18,25 +18,31 @@ public class GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f, whatIsGrappleable))
         {
-            StartGrapple();
+            Debug.DrawRay(cam.transform.position, cam.transform.forward * hit.distance, Color.red);
         }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            StopGrapple();
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    StartGrapple();
+        //}
+        //else if (Input.GetMouseButtonUp(1))
+        //{
+        //    StopGrapple();
+        //}
     }
     private void LateUpdate()
     {
         DrawRope();
     }
 
-    void StartGrapple()
+    public  void StartGrapple()
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance))
+        if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
         {
             grapplePoint = hit.point;
 
@@ -69,7 +75,7 @@ public class GrapplingGun : MonoBehaviour
         lr.SetPosition(1, grapplePoint);
     }
 
-    void StopGrapple()
+    public void StopGrapple()
     {
         lr.positionCount = 0;
         Destroy(joint);
