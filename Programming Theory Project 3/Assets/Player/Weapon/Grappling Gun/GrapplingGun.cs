@@ -38,7 +38,7 @@ public class GrapplingGun : MonoBehaviour
         DrawRope();
     }
 
-    public  void StartGrapple()
+    public  void StartGrappleSingle()
     {
         RaycastHit hit;
 
@@ -64,6 +64,35 @@ public class GrapplingGun : MonoBehaviour
             lr.positionCount = 2;
         }
     }
+
+
+    //public void StartGrappleDual()
+    //{
+    //    RaycastHit hit;
+
+    //    if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleable))
+    //    {
+    //        grapplePoint = hit.point;
+
+    //        joint = player.gameObject.AddComponent<SpringJoint>();
+    //        joint.autoConfigureConnectedAnchor = false;
+    //        joint.connectedAnchor = grapplePoint;
+
+    //        float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+
+    //        // the distance grapple will try to keep from grapple poinr
+    //        joint.maxDistance = distanceFromPoint * 0.8f;
+    //        joint.minDistance = distanceFromPoint * 0.25f;
+
+    //        // Change there value to fix your game
+    //        joint.spring = 4.5f;
+    //        joint.damper = 7f;
+    //        joint.massScale = 4.5f;
+
+    //        lr.positionCount = 2;
+    //    }
+    //}
+
 
     void DrawRope()
     {
