@@ -62,7 +62,7 @@ public class GrapplingRope : MonoBehaviour
         {
             var delta = i / (float)quality;
             
-            var offest = up * waveCount * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value * affectCurn.Evaluate(delta);
+            var offest = up * waveHeght * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value * affectCurn.Evaluate(delta);
 
             lr.SetPosition(i, Vector3.Lerp(gunTipPosition, currentGrapplePosition, delta) + offest);
         }
