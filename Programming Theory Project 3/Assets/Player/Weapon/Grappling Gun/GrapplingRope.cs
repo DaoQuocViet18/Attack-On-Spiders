@@ -12,8 +12,8 @@ public class GrapplingRope : MonoBehaviour
     public float strength;
     public float velocity;
     public float waveCount;
-    public float waveHeght;
-    public AnimationCurve affectCurn;
+    public float waveHeight;
+    public AnimationCurve affectCurve;
 
     private void Awake()
     {
@@ -55,6 +55,7 @@ public class GrapplingRope : MonoBehaviour
         var grapplePoint = grapplingGun.GetGrapplePoint();
         var gunTipPosition = grapplingGun.guntip.position;
         var up = Quaternion.LookRotation((grapplePoint - gunTipPosition).normalized) * Vector3.up;
+        var right = Quaternion.LookRotation((grapplePoint - gunTipPosition).normalized) * Vector3.right;
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
 
@@ -62,7 +63,8 @@ public class GrapplingRope : MonoBehaviour
         {
             var delta = i / (float)quality;
             
-            var offest = up * waveHeght * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value * affectCurn.Evaluate(delta);
+            var offest =    up * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value * affectCurve.Evaluate(delta) +
+                         right * waveHeight * Mathf.Cos(delta * waveCount * Mathf.PI) * spring.Value * affectCurve.Evaluate(delta);
 
             lr.SetPosition(i, Vector3.Lerp(gunTipPosition, currentGrapplePosition, delta) + offest);
         }

@@ -316,7 +316,7 @@ Transform:
   - {fileID: 1403417605}
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &123205877
 MonoBehaviour:
@@ -2031,8 +2031,65 @@ Transform:
   - {fileID: 1347670042}
   - {fileID: 1135768744}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1257442476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -45.148262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.023937099
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.41832
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487794853591111566, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089236514962639905, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
+      propertyPath: m_Name
+      value: S_Bullet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef609b231e5a21240bbe6c2d6134e209, type: 3}
 --- !u!1 &1347670041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,20 +2987,20 @@ MonoBehaviour:
   damper: 14
   strength: 800
   velocity: 15
-  waveCount: 5
-  waveHeght: 3
-  affectCurn:
+  waveCount: 3
+  waveHeight: 2
+  affectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.68217486
-      outSlope: 0.68217486
+      inSlope: 6.792837
+      outSlope: 6.792837
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.020604396
+      outWeight: 0.054945055
     - serializedVersion: 3
       time: 1
       value: 0
@@ -3340,20 +3397,20 @@ MonoBehaviour:
   damper: 14
   strength: 800
   velocity: 15
-  waveCount: 5
-  waveHeght: 3
-  affectCurn:
+  waveCount: 3
+  waveHeight: 2
+  affectCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.6023734
-      outSlope: 0.6023734
+      inSlope: 6.792837
+      outSlope: 6.792837
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.016090775
+      outWeight: 0.054945055
     - serializedVersion: 3
       time: 1
       value: 0
