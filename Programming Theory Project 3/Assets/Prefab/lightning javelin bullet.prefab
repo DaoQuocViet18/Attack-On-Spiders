@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7056591253024616063}
   - component: {fileID: -1666459100329688335}
   m_Layer: 0
-  m_Name: lightning javelin amon
+  m_Name: lightning javelin bullet
   m_TagString: Destroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

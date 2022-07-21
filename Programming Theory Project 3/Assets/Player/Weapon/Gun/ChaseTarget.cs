@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChaseTarget : MonoBehaviour
 {
     [SerializeField] private Vector3 target;
-    private float throwForce = 35f;
+    private float throwForce = 100f;
     private float TimeFonce = 0;
     private Rigidbody projectleRb;
 

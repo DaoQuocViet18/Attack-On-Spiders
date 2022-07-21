@@ -108,7 +108,7 @@ public class Gun : MonoBehaviour
         effect.Play();
 
         // imstantiate object to throw
-        GameObject projectite = Instantiate(objectToThrow,new Vector3(100,100,100), cam.rotation);
+        GameObject projectite = Instantiate(objectToThrow,new Vector3(0,-100,0), cam.rotation);
 
         // get rigidbody component
         Rigidbody projectleRb = projectite.GetComponent<Rigidbody>();

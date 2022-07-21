@@ -17,10 +17,10 @@ public class GunLJ : MonoBehaviour
     float TimeShootGun;
     public float reloatTime = 1.5f;
 
+
     [Header("Throwing")]
-    public KeyCode throwKey = KeyCode.Mouse0;
-    public float throwForce;
-    public float ThrowUpwardForce;
+    [SerializeField] KeyCode throwKey = KeyCode.Mouse0;
+    [SerializeField] float throwForce;
     [SerializeField] LayerMask layermask;
     PlayerMovement PM;
     public Vector3 targetPosition;
@@ -77,9 +77,18 @@ public class GunLJ : MonoBehaviour
             forceDirection = (hit.point - attackpoint.position).normalized;
         }
 
-        
-        // add Force
-        Vector3 forceToAdd = forceDirection * throwForce + transform.up * ThrowUpwardForce;
+        Vector3 forceToAdd;
+
+        if (attackpoint.name == "AT left")
+        {
+            // add Force
+            forceToAdd = forceDirection * throwForce + new Vector3(-3, 3, 0);
+        }
+        else
+        {
+            // add Force
+            forceToAdd = forceDirection * throwForce + new Vector3(3, 3, 0);
+        }
 
         // imstantiate object to throw
         GameObject projectite = Instantiate(objectToThrow, attackpoint.position, cam.rotation);
@@ -102,9 +111,8 @@ public class GunLJ : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(reloatTime - 0.25f);
+        yield return new WaitForSeconds(reloatTime);
         animator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);
         currentAmmo = maxAmmo;
         isReloading = false;
     }

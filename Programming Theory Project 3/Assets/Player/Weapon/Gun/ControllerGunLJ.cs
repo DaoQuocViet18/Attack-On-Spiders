@@ -5,7 +5,8 @@ using UnityEngine;
 public class ControllerGunLJ : MonoBehaviour
 {
     GunLJ gunlj;
-    public Transform[] Guntip;
+    [SerializeField] private Transform[] Guntip;
+    [SerializeField] private GameObject[] LJB;
     int numberGrapplingGun = 1;
     WeaponsSwitching WS;
     void Awake()
@@ -35,9 +36,14 @@ public class ControllerGunLJ : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
                     {
+                        LJB[0].SetActive(false);
                         gunlj.attackpoint = Guntip[0];
                         gunlj.Shoot();
                         numberGrapplingGun++;
+                    }
+                    else if (!gunlj.isReloading)
+                    {
+                        LJB[1].SetActive(true);
                     }
                     break;
                 }
@@ -46,9 +52,14 @@ public class ControllerGunLJ : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
                     {
+                        LJB[1].SetActive(false);
                         gunlj.attackpoint = Guntip[1];
                         gunlj.Shoot();
                         numberGrapplingGun = 1;
+                    }
+                    else if (!gunlj.isReloading)
+                    {
+                        LJB[0].SetActive(true);
                     }
                     break;
                 }
