@@ -19,7 +19,6 @@ public class GunLJ : MonoBehaviour
 
 
     [Header("Throwing")]
-    [SerializeField] KeyCode throwKey = KeyCode.Mouse0;
     [SerializeField] float throwForce;
     [SerializeField] LayerMask layermask;
     PlayerMovement PM;
