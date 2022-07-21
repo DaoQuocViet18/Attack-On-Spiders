@@ -2140,6 +2140,9 @@ MonoBehaviour:
   Guntip:
   - {fileID: 1648568611}
   - {fileID: 1300419594}
+  LJB:
+  - {fileID: 1648568610}
+  - {fileID: 1300419593}
 --- !u!1 &1097119529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,7 +2370,6 @@ MonoBehaviour:
   reloatTime: 1
   throwKey: 323
   throwForce: 70
-  ThrowUpwardForce: 4
   layermask:
     serializedVersion: 2
     m_Bits: 0

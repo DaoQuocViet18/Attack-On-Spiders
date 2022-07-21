@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8907126670232200076}
   - component: {fileID: -3565179459368198609}
   - component: {fileID: 7056591253024616063}
-  - component: {fileID: -1666459100329688335}
   m_Layer: 0
   m_Name: lightning javelin bullet
   m_TagString: Destroy
@@ -129,16 +128,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1666459100329688335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8669793115107032285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be666ae8933f9745a7974d0253b998e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 0}
