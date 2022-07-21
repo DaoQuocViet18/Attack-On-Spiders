@@ -6,6 +6,8 @@ TagManager:
   tags:
   - capsule
   - cube
+  - NoMoveWhenShoot
+  - Destroy
   layers:
   - Default
   - TransparentFX

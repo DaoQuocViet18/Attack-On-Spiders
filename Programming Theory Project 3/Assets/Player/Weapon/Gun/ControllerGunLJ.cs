@@ -1,0 +1,57 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ControllerGunLJ : MonoBehaviour
+{
+    GunLJ gunlj;
+    public Transform[] Guntip;
+    int numberGrapplingGun = 1;
+    WeaponsSwitching WS;
+    void Awake()
+    {
+        gunlj = GameObject.Find("LJ").GetComponent<GunLJ>();
+        WS = GameObject.Find("WeaponsHolder").GetComponent<WeaponsSwitching>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (gunlj.isReloading)
+            return;
+
+        if (WS.P_Changing)
+            return;
+
+        if (gunlj.currentAmmo <= 0)
+        {
+            StartCoroutine(gunlj.Reloat());
+            return;   // stop here and not continue
+        }
+
+        switch (numberGrapplingGun)
+        {
+            case 1:
+                {
+                    if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
+                    {
+                        gunlj.attackpoint = Guntip[0];
+                        gunlj.Shoot();
+                        numberGrapplingGun++;
+                    }
+                    break;
+                }
+
+            case 2:
+                {
+                    if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
+                    {
+                        gunlj.attackpoint = Guntip[1];
+                        gunlj.Shoot();
+                        numberGrapplingGun = 1;
+                    }
+                    break;
+                }
+        }
+    }
+}

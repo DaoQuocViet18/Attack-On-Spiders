@@ -11,6 +11,15 @@ public class DestroyObject : MonoBehaviour
         StartCoroutine(Wait());      
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.CompareTag("Destroy"))
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(TimeofAmmo);

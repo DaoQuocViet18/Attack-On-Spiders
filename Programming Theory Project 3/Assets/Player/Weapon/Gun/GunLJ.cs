@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunLJ : MonoBehaviour
 {
     [Header("References")]
     public Transform cam;
@@ -12,9 +12,8 @@ public class Gun : MonoBehaviour
     [Header("settings")]
     public int maxAmmo;
     public float throwCooldown;
-    [SerializeField] int currentAmmo;
-    [SerializeField] bool isReloading = false;
-    float deadlineShoot = 2.5f;
+    public int currentAmmo;
+    public bool isReloading = false;
     float TimeShootGun;
     public float reloatTime = 1.5f;
 
@@ -22,16 +21,18 @@ public class Gun : MonoBehaviour
     public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
     public float ThrowUpwardForce;
-    private int FirstShoot = 0;
     [SerializeField] LayerMask layermask;
     PlayerMovement PM;
+    public Vector3 targetPosition;
 
     [Header("Particle")]
     WeaponsSwitching WS;
     public Animator animator;
     public ParticleSystem effect;
 
-    bool readyToThrow;
+    public bool readyToThrow;
+
+    
 
     private void Awake()
     {
@@ -53,53 +54,10 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        if (isReloading)
-            return;
-
-        if (WS.P_Changing)
-            return;
-
-        if (currentAmmo <= 0)
-        {
-            StartCoroutine(Reloat());
-            return;   // stop here and not continue
-        }
-
-        inputShoot();
+        Test();
     }
 
-    void inputShoot()
-    {
-        if (FirstShoot == 0)
-        {
-            TimeShootGun = Time.time + deadlineShoot;
-        }
-
-
-        if (Input.GetKeyDown(throwKey) && readyToThrow && maxAmmo > 0)
-        {
-            FirstShoot++;
-            if (FirstShoot == 1)
-            {
-                animator.SetBool("Shooting", true);
-                StartCoroutine(PrepapeShoot());
-            }
-            else
-                Shoot();
-        }
-        else if (Input.GetKeyUp(throwKey))
-        {
-            TimeShootGun = Time.time + deadlineShoot;
-        }
-
-        if (Time.time >= TimeShootGun)
-        {
-            animator.SetBool("Shooting", false);
-            FirstShoot = 0;
-        }
-    }
-
-    void Shoot()
+    public void Shoot()
     {
         readyToThrow = false;
 
@@ -107,40 +65,40 @@ public class Gun : MonoBehaviour
 
         effect.Play();
 
-        // imstantiate object to throw
-        GameObject projectite = Instantiate(objectToThrow,new Vector3(100,100,100), cam.rotation);
-
-        // get rigidbody component
-        Rigidbody projectleRb = projectite.GetComponent<Rigidbody>();
-
+        
         // calculate direction
         Vector3 forceDirection = cam.transform.forward;
 
         RaycastHit hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f , layermask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f, layermask))
         {
-       
+            
             forceDirection = (hit.point - attackpoint.position).normalized;
         }
 
-
+        
         // add Force
         Vector3 forceToAdd = forceDirection * throwForce + transform.up * ThrowUpwardForce;
 
-        projectite.transform.position = attackpoint.position;
+        // imstantiate object to throw
+        GameObject projectite = Instantiate(objectToThrow, attackpoint.position, cam.rotation);
+
+        // get rigidbody component
+        Rigidbody projectleRb = projectite.GetComponent<Rigidbody>();
+
         projectleRb.AddForce(forceToAdd, ForceMode.Impulse);
 
         // implement throwCoolDown
         Invoke(nameof(ResetThrow), throwCooldown);
     }
-    
+
     void ResetThrow()
     {
         readyToThrow = true;
-    }  
-    
-    IEnumerator Reloat()
+    }
+
+    public IEnumerator Reloat()
     {
         isReloading = true;
         animator.SetBool("Reloading", true);
@@ -149,12 +107,6 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         currentAmmo = maxAmmo;
         isReloading = false;
-    }   
-
-    IEnumerator PrepapeShoot()
-    {
-        yield return new WaitForSeconds(0.18f);
-        Shoot();
     }
 
     void Test()
@@ -166,6 +118,7 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 500f))
         {
             Debug.DrawRay(cam.transform.position, cam.transform.forward * hit.distance, Color.red);
+            targetPosition = hit.point;
             forceDirection = (hit.point - attackpoint.position).normalized;
         }
 
