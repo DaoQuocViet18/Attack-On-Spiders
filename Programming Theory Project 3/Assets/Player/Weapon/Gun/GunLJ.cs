@@ -79,13 +79,11 @@ public class GunLJ : MonoBehaviour
         if (attackpoint.name == "AT left")
         {
             // add Force
-            animator.SetBool("LJShooting", true);
             forceToAdd = forceDirection * throwForce + new Vector3(-3, 3, 0);
         }
         else
         {
             // add Force
-            animator.SetBool("LJShooting", true);
             forceToAdd = forceDirection * throwForce + new Vector3(3, 3, 0);
         }
 
