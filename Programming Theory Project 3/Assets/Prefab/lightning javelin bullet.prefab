@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8669793115107032285}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.42755714, y: 0.31802368, z: 0.16461945}
   m_LocalScale: {x: 10.537982, y: 10.537982, z: 216.78152}
   m_ConstrainProportionsScale: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124eef54a4d1bd54ca2a2d4c4f1a74fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bisExplosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
   TimeofAmmo: 5
 --- !u!65 &-3565179459368198609
 BoxCollider:

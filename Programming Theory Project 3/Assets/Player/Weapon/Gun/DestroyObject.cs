@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
+    [SerializeField] ParticleSystem bisExplosion;
     [SerializeField] float TimeofAmmo = 5f;
+    [SerializeField] float TimeofParticle = 2f;
 
     void Start()
     {
         StartCoroutine(Wait());      
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
         if (gameObject.CompareTag("Destroy"))
         {
+            ParticleSystem ObjectBisExplosion =  Instantiate(bisExplosion);
+            ObjectBisExplosion.transform.position = transform.position;
+            ObjectBisExplosion.Play();
             Destroy(gameObject);
         }
         
@@ -22,7 +27,15 @@ public class DestroyObject : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(TimeofAmmo);
-        Destroy(gameObject);
+        if (CompareTag("Bullet"))
+        {
+            yield return new WaitForSeconds(TimeofAmmo);
+            Destroy(gameObject);
+        }
+        else if(CompareTag("Particle"))
+        {
+            yield return new WaitForSeconds(TimeofParticle);
+            Destroy(gameObject);
+        }
     }
 }

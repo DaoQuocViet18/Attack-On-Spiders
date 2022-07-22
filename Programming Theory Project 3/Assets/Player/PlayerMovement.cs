@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumbFouce;
     public float JumbCooldown;
     public float airMultiplier;
+    public float airGGMultiplier;
     public KeyCode jumbKey = KeyCode.Space;
     bool readyToJumb = true;
 
@@ -91,9 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
             PlayerRb.AddForce(moveDirection.normalized * speed * 10.0f, ForceMode.Force);
-        else if (!grounded)
+        else if (!grounded && Input.GetMouseButtonUp(1))
             PlayerRb.AddForce(moveDirection.normalized * speed * 10.0f * airMultiplier, ForceMode.Force);
-
+        else if (!grounded && Input.GetMouseButton(1))
+            PlayerRb.AddForce(moveDirection.normalized * speed * 10.0f * airGGMultiplier, ForceMode.Force);
+            
         PlayerRb.useGravity = !OnSlope();
     }
 
