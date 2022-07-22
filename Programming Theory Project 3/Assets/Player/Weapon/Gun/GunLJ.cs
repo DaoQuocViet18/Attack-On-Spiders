@@ -27,7 +27,6 @@ public class GunLJ : MonoBehaviour
     [Header("Particle")]
     WeaponsSwitching WS;
     public Animator animator;
-    public ParticleSystem effect;
 
     public bool readyToThrow;
 
@@ -62,9 +61,8 @@ public class GunLJ : MonoBehaviour
 
         currentAmmo--;
 
-        effect.Play();
-
         
+      
         // calculate direction
         Vector3 forceDirection = cam.transform.forward;
 
@@ -81,11 +79,13 @@ public class GunLJ : MonoBehaviour
         if (attackpoint.name == "AT left")
         {
             // add Force
+            animator.SetBool("LJShooting", true);
             forceToAdd = forceDirection * throwForce + new Vector3(-3, 3, 0);
         }
         else
         {
             // add Force
+            animator.SetBool("LJShooting", true);
             forceToAdd = forceDirection * throwForce + new Vector3(3, 3, 0);
         }
 
@@ -107,11 +107,12 @@ public class GunLJ : MonoBehaviour
     }
 
     public IEnumerator Reloat()
-    {
+    {      
         isReloading = true;
         animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(reloatTime);
+        yield return new WaitForSeconds(reloatTime - 0.25f);
         animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(0.25f);
         currentAmmo = maxAmmo;
         isReloading = false;
     }
