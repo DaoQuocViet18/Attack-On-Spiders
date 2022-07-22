@@ -7,6 +7,7 @@ public class ControllerGunLJ : MonoBehaviour
     GunLJ gunlj;
     [SerializeField] private Transform[] Guntip;
     [SerializeField] private GameObject[] LJB;
+    
     int numberGrapplingGun = 1;
     WeaponsSwitching WS;
     void Awake()
