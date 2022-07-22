@@ -19,7 +19,7 @@ public class DestroyObject : MonoBehaviour
         {
             ParticleSystem ObjectBisExplosion =  Instantiate(bisExplosion);
             ObjectBisExplosion.transform.position = transform.position;
-           // ObjectBisExplosion.transform.Rotate(-transform.rotation.x, -transform.rotation.y, -transform.rotation.z, Space.Self);
+            ObjectBisExplosion.transform.Rotate(-transform.rotation.x, -transform.rotation.y, -transform.rotation.z, Space.Self);
             ObjectBisExplosion.Play();
             Destroy(gameObject);
         }
@@ -36,7 +36,7 @@ public class DestroyObject : MonoBehaviour
         else if(CompareTag("Particle"))
         {
             yield return new WaitForSeconds(TimeofParticle);
-            Destroy(gameObject);
+            Destroy(gameObject);  
         }
     }
 }
