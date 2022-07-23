@@ -59,9 +59,7 @@ public class GunLJ : MonoBehaviour
     {
         readyToThrow = false;
 
-        currentAmmo--;
-
-        
+        currentAmmo--;       
       
         // calculate direction
         Vector3 forceDirection = cam.transform.forward;
