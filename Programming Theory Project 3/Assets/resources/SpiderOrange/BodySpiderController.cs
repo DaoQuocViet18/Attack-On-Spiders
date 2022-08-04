@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodySpiderController : MonoBehaviour
 {
     public Transform[] legTargets;
-    public float stepSize = 0.15f;
+    public float stepSize = 0.5f;
     public int smoothness = 8;
     public float stepHeight = 0.15f;
     public float sphereCastRadius = 0.125f;
@@ -35,8 +35,6 @@ public class BodySpiderController : MonoBehaviour
         for (int i = 0; i < nbLegs; ++i)
         {
             defaultLegPositions[i] = legTargets[i].localPosition;
-            Debug.Log("defaultLegPositions[" + i + "] = " + defaultLegPositions[i]);
-            Debug.Log("transform.TransformPoint(defaultLegPositions[" + i + "]) = " + transform.TransformPoint(defaultLegPositions[i]));
             lastLegPositions[i] = legTargets[i].position;
             legMoving[i] = false;
         }
