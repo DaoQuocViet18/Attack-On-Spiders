@@ -45,18 +45,18 @@ public class SpiderMove : MonoBehaviour
 
         time = Time.time;
 
-        if (Time.time >= timeTrigger - 5 + 0.2f)
-        {
-            valueX = 0;
-        }
+        //if (Time.time >= timeTrigger - 5 + 0.2f)
+        //{
+        //    valueX = 0;
+        //}
 
-        if (Time.time >= timeTrigger)
-        {
-            valueX = Random.Range(-0.5f, 0.5f);
-            timeTrigger = Time.time + 5f;        
-        }
-
-            valueY = 1f;
+        //if (Time.time >= timeTrigger)
+        //{
+        //    valueX = Random.Range(-0.5f, 0.5f);
+        //    timeTrigger = Time.time + 5f;        
+        //}
+        valueX = Input.GetAxis("Horizontal");
+        valueY = Input.GetAxis("Vertical");
 
         if (valueY != 0)
             transform.position += transform.forward * valueY * _speed * Time.fixedDeltaTime;
