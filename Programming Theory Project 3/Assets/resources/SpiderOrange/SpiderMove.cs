@@ -20,11 +20,6 @@ public class SpiderMove : MonoBehaviour
     private Quaternion lastRot;
     private Vector3[] pn;
 
-    public float timeTrigger;
-    public float time;
-    public float valueY;
-    public float valueX;
-
     void Start()
     {
         velocity = new Vector3();
@@ -43,20 +38,8 @@ public class SpiderMove : MonoBehaviour
         lastPosition = transform.position;
         lastVelocity = velocity;
 
-        time = Time.time;
-
-        //if (Time.time >= timeTrigger - 5 + 0.2f)
-        //{
-        //    valueX = 0;
-        //}
-
-        //if (Time.time >= timeTrigger)
-        //{
-        //    valueX = Random.Range(-0.5f, 0.5f);
-        //    timeTrigger = Time.time + 5f;        
-        //}
-        valueX = Input.GetAxis("Horizontal");
-        valueY = Input.GetAxis("Vertical");
+        float valueX = Input.GetAxis("Horizontal");
+        float valueY = Input.GetAxis("Vertical");
 
         if (valueY != 0)
             transform.position += transform.forward * valueY * _speed * Time.fixedDeltaTime;

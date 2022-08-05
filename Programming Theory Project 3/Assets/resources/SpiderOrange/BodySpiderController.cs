@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodySpiderController : MonoBehaviour
 {
     public Transform[] legTargets;
-    public float stepSize = 0.5f;
+    public float stepSize = 0.15f;
     public int smoothness = 8;
     public float stepHeight = 0.15f;
     public float sphereCastRadius = 0.125f;
@@ -59,32 +59,41 @@ public class BodySpiderController : MonoBehaviour
         Vector3[] desiredPositions = new Vector3[nbLegs];
         int indexToMove = -1;
         float maxDistance = stepSize;
+
+        // khien cac chan di chuyen 1 cach lan luot
         for (int i = 0; i < nbLegs; ++i)
         {
             desiredPositions[i] = transform.TransformPoint(defaultLegPositions[i]);
 
-            float distance = Vector3.ProjectOnPlane(desiredPositions[i] + velocity * velocityMultiplier - lastLegPositions[i], transform.up).magnitude;
+            float distance = Vector3.ProjectOnPlane(desiredPositions[i] + velocity * velocityMultiplier - lastLegPositions[i], transform.up).magnitude;          
             if (distance > maxDistance)
             {
                 maxDistance = distance;
                 indexToMove = i;
             }
         }
+
         for (int i = 0; i < nbLegs; ++i)
+        {
             if (i != indexToMove)
             {
                 legTargets[i].position = lastLegPositions[i];
             }
+        }
+
+        // di chuyen chan
         if (indexToMove != -1 && !legMoving[0])
         {
             Vector3 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(velocity.magnitude * velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - legTargets[indexToMove].position) + velocity * velocityMultiplier;
-
+            
             Vector3[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange, (transform.parent.up - velocity * 100).normalized);
             Vector3[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange * (1f + velocity.magnitude), (transform.parent.up + velocity * 75).normalized);
 
             legMoving[0] = true;
 
+            // thuc hien
             if (positionAndNormalFwd[1] == Vector3.zero)
+
             {
                 StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
             }
@@ -95,13 +104,13 @@ public class BodySpiderController : MonoBehaviour
         }
     }
 
+    // tinh toan diem dat chan
     Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
     {
         Vector3[] res = new Vector3[2];
         res[1] = Vector3.zero;
         RaycastHit hit;
         Ray ray = new Ray(point + halfRange * up / 2f, -up);
-
         if (Physics.SphereCast(ray, sphereCastRadius, out hit, 2f * halfRange))
         {
             res[0] = hit.point;
@@ -114,7 +123,7 @@ public class BodySpiderController : MonoBehaviour
         return res;
     }
 
-
+    // di chuyen chan
     IEnumerator PerformStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
@@ -129,6 +138,7 @@ public class BodySpiderController : MonoBehaviour
         legMoving[0] = false;
     }
 
+    // xoay co the
     void RotationBody()
     {
         lastBodyPos = transform.position;
@@ -144,12 +154,13 @@ public class BodySpiderController : MonoBehaviour
         }
     }
 
+
     private void OnDrawGizmosSelected()
     {
         for (int i = 0; i < nbLegs; ++i)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
+            Gizmos.DrawWireSphere(legTargets[i].position, 0.15f);
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
         }
