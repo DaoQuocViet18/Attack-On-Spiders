@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
     [SerializeField] ParticleSystem bisExplosion;
+    [SerializeField] GameObject Damage;
     [SerializeField] float TimeofAmmo = 5f;
     [SerializeField] float TimeofParticle = 2f;
 
@@ -19,8 +20,12 @@ public class DestroyObject : MonoBehaviour
         {
             ParticleSystem ObjectBisExplosion =  Instantiate(bisExplosion);
             ObjectBisExplosion.transform.position = transform.position;
-            ObjectBisExplosion.transform.Rotate(-transform.rotation.x, -transform.rotation.y, -transform.rotation.z, Space.Self);
+            //ObjectBisExplosion.transform.Rotate(-transform.rotation.x, -transform.rotation.y, -transform.rotation.z, Space.Self);
             ObjectBisExplosion.Play();
+
+            GameObject ObjectDamege = Instantiate(Damage);
+            ObjectDamege.transform.position = transform.position;
+
             Destroy(gameObject);
         }
         

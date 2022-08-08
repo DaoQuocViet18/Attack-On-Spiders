@@ -9,6 +9,7 @@ TagManager:
   - Destroy
   - Bullet
   - Particle
+  - Enemy
   layers:
   - Default
   - TransparentFX
