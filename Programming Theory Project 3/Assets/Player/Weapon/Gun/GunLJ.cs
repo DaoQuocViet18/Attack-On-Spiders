@@ -48,6 +48,7 @@ public class GunLJ : MonoBehaviour
     {
         isReloading = false;
         animator.SetBool("Reloading", false);
+        animator.SetBool("Shooting", false);
     }
 
     private void Update()
