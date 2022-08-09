@@ -29,7 +29,7 @@ public class Spawn : MonoBehaviour
     void SpawnEnemy()
     {
         Vector3 spawnLocation = new Vector3(Random.Range(-71, 71), 0 , Random.Range(-71, 71));
-        if (NumberEnemy <= 5)
+        if (NumberEnemy <= 15)
         {
             Instantiate(enemy[0], spawnLocation, enemy[0].transform.rotation);
             NumberEnemy++;

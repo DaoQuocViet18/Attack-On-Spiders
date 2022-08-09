@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2551655664226128171}
   - component: {fileID: 3866995454043243832}
   - component: {fileID: 8909924372973693396}
+  - component: {fileID: 6996625333753086804}
+  - component: {fileID: 7811569629691358052}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -97,3 +99,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6996625333753086804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413705172872327850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff6f75f7516bbb44b1c37b257f301dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Curpse: {fileID: 1427499900135295917, guid: 95018766b4abefb4ebeaa0f86ead03cd, type: 3}
+--- !u!54 &7811569629691358052
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413705172872327850}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

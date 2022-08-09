@@ -102,6 +102,7 @@ MonoBehaviour:
   bisExplosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   Damage: {fileID: 5413705172872327850, guid: ecab4b21529f8ef42b8cb5fcf520a515, type: 3}
+  Curpse: {fileID: 1427499900135295917, guid: 95018766b4abefb4ebeaa0f86ead03cd, type: 3}
   TimeofAmmo: 5
   TimeofParticle: 2
 --- !u!65 &-3565179459368198609

@@ -26,6 +26,7 @@ public class DestroyObject : MonoBehaviour
             GameObject ObjectDamege = Instantiate(Damage);
             ObjectDamege.transform.position = transform.position;
 
+
             Destroy(gameObject);
         }
         

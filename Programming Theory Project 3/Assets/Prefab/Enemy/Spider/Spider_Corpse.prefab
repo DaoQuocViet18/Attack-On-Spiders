@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1427499900135295917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.922594, y: 0, z: 22.096813}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2558038307885149190}
@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 8916790229846349732}
   - component: {fileID: 3949942086154015332}
   - component: {fileID: 2237750567679689703}
+  - component: {fileID: 2236620138294205293}
   - component: {fileID: 2237750567679689700}
   m_Layer: 0
   m_Name: Spider.004
@@ -137,6 +138,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2236620138294205293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759655765326816905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6b936b9431945b5c5559db111d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2237750567679689700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -163,6 +176,7 @@ GameObject:
   - component: {fileID: 7750615302294561216}
   - component: {fileID: 6578528763631521982}
   - component: {fileID: 2237750567692374297}
+  - component: {fileID: 3766701304898140670}
   - component: {fileID: 2237750567692374302}
   m_Layer: 0
   m_Name: Spider.001
@@ -252,6 +266,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3766701304898140670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318006298353488893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6b936b9431945b5c5559db111d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2237750567692374302
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -278,6 +304,7 @@ GameObject:
   - component: {fileID: 6171218053889924599}
   - component: {fileID: 1459920172434456986}
   - component: {fileID: 2237750568233762539}
+  - component: {fileID: 3176431925370945990}
   - component: {fileID: 2237750568233762536}
   m_Layer: 0
   m_Name: Spider
@@ -367,6 +394,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3176431925370945990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342292780013345654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6b936b9431945b5c5559db111d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2237750568233762536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -392,6 +431,7 @@ GameObject:
   - component: {fileID: 6449905332390384895}
   - component: {fileID: 2041381124087705957}
   - component: {fileID: 2237750568469536845}
+  - component: {fileID: 7946297160479904981}
   - component: {fileID: 2237750568469537202}
   m_Layer: 0
   m_Name: Spider.003
@@ -481,6 +521,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7946297160479904981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803448878387897516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6b936b9431945b5c5559db111d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2237750568469537202
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -507,6 +559,7 @@ GameObject:
   - component: {fileID: 5493706153899330457}
   - component: {fileID: 4214314068911377793}
   - component: {fileID: 2237750568118383459}
+  - component: {fileID: 5641736746083528083}
   - component: {fileID: 2237750568118383456}
   m_Layer: 0
   m_Name: Spider.002
@@ -596,6 +649,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5641736746083528083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842813404077979299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507e6b936b9431945b5c5559db111d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2237750568118383456
 MeshCollider:
   m_ObjectHideFlags: 0

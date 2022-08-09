@@ -4,59 +4,39 @@ using UnityEngine;
 
 public class DestroyEnemy : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision other)
+    [SerializeField] GameObject Curpse;
+
+    private Spawn SpawnScript;
+    private float TimeDeadline;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        Debug.Log("hoat dong duoc");
+        SpawnScript = GameObject.Find("SpawnManager").GetComponent<Spawn>();
+        TimeDeadline = Time.time + 0.2f;
     }
 
-    //private Spawn SpawnScript;
+    private void Update()
+    {
+        if (Time.time >= TimeDeadline)
+        {
+            Destroy(gameObject);
+        }
+    }
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    SpawnScript = GameObject.Find("SpawnManager").GetComponent<Spawn>();      
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Spider_Current(Clone)")
+        {
+            SpawnScript.Change = 1;
+            Destroy(collision.gameObject);
 
-    //private void Update()
-    //{
-    //    if (Time.time >= 10)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+            GameObject ObjectCurpse = Instantiate(Curpse);
+            ObjectCurpse.transform.position = collision.transform.position;
+            ObjectCurpse.transform.rotation = collision.transform.rotation;
+            
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    //if (collision.gameObject.name == "Spider_Current")
-    //    //{
-    //    //    SpawnScript.Change = 1;
-    //    //    Destroy(collision.gameObject);
-    //    //    Destroy(gameObject);
-    //    //}
-    //    Debug.Log("hoat dong duoc");
-
-    //    if (CompareTag("Enemy"))
-    //    {
-    //        SpawnScript.Change = 1;
-    //        Destroy(collision.gameObject);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    //SpawnScript.Change = 1;
-
-    //    Destroy(other.gameObject);
-    //    Destroy(gameObject);
-
-    //    //if (other.gameObject.name == "Damage")
-    //    //{
-    //    //    SpawnScript.Change = 1;
-    //    //    Destroy(other.gameObject);
-    //    //    Destroy(gameObject);
-    //    //}
-    //}
+            Destroy(gameObject);
+        }
+    }
 }
