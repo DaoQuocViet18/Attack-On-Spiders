@@ -31,6 +31,13 @@ public class SpiderMove : MonoBehaviour
     private bool IsRotationLeft = false;
     private bool IsWalking = false;
 
+    [Header("Attack")]
+    PlayerMovement Player;
+
+    private void Awake()
+    {
+        Player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+    }
 
     void Start()
     {
@@ -51,15 +58,20 @@ public class SpiderMove : MonoBehaviour
         lastPosition = transform.position;
         lastVelocity = velocity;
 
-        if (IsWandering == false)
-            StartCoroutine(Wander());
-        if (IsRotationRight == true)
-            transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * RotationSpeed * Time.fixedDeltaTime;
-        if (IsRotationLeft == true)
-            transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * RotationSpeed * Time.fixedDeltaTime;
-        if (IsWalking == true)
-            transform.position += transform.forward * valueY * _speed * Time.fixedDeltaTime;
 
+        Vector3 direction = Player.transform.position - transform.position;
+        if (direction.magnitude > 15)
+        {
+            if (IsWandering == false)
+                StartCoroutine(Wander());
+            if (IsRotationRight == true)
+                transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * RotationSpeed * Time.fixedDeltaTime;
+            if (IsRotationLeft == true)
+                transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * RotationSpeed * Time.fixedDeltaTime;
+            if (IsWalking == true)
+                transform.position += transform.forward * valueY * _speed * Time.fixedDeltaTime;
+        }
+        
 
         //valueY = Input.GetAxis("Vertical");
         //if (valueY != 0)
