@@ -7,7 +7,9 @@ public class Spawn : MonoBehaviour
     public GameObject[] enemy;
     private float spawnDelay = 2f;
     private float spawnInterval = 1.5f;
-    private int NumberEnemy = 0;
+    public int NumberEnemy = 0;
+    public int NumberPoint = 0;
+    Vector3 spawnLocation;
 
     public int Change
     {
@@ -28,9 +30,28 @@ public class Spawn : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Vector3 spawnLocation = new Vector3(Random.Range(-71, 71), 0 , Random.Range(-71, 71));
-        if (NumberEnemy <= 15)
+
+
+        if (NumberEnemy <= 20)
         {
+            NumberPoint = Random.Range(1, 5);
+            if (NumberPoint == 1)
+            {
+                spawnLocation = new Vector3(Random.Range(40, 71), 0, Random.Range(-70, 71));
+            }
+            else if (NumberPoint == 2)
+            {
+                spawnLocation = new Vector3(Random.Range(-70, 71), 0, Random.Range(40, 71));
+            }
+            else if (NumberPoint == 3)
+            {
+                spawnLocation = new Vector3(Random.Range(-40, -71), 0, Random.Range(-70, 71));
+            }
+            else if (NumberPoint == 4)
+            {
+                spawnLocation = new Vector3(Random.Range(-70, 71), 0, Random.Range(-40, -71));
+            }
+
             Instantiate(enemy[0], spawnLocation, enemy[0].transform.rotation);
             NumberEnemy++;
         }

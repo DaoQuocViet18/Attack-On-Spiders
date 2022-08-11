@@ -39,7 +39,8 @@ public class Attack : MonoBehaviour
 
             if (NumberWeapon < 1 && Time.time >= timeShoot)
             {
-                Instantiate(Weapon[0], Vector3.Cross(transform.right, transform.forward) + new Vector3(0, 3, 0), transform.rotation);
+                Instantiate(Weapon[0], Vector3.Cross(transform.right, transform.forward).normalized, transform.rotation);
+
                 NumberWeapon++;
                 time = 0;
             }
