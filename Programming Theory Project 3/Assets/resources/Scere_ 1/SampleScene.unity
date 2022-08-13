@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 51369907}
   - component: {fileID: 51369908}
   - component: {fileID: 51369909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 123205873}
   - component: {fileID: 123205878}
   - component: {fileID: 123205877}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 73
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &123205878
 Rigidbody:
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 169539429}
   - component: {fileID: 169539428}
   - component: {fileID: 169539427}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 336709616}
   - component: {fileID: 336709618}
   - component: {fileID: 336709617}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dash (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 377519545}
   - component: {fileID: 377519544}
   - component: {fileID: 377519543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,15 +1142,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1127061155119796, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1263699106408682, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1279087567999658, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Name
@@ -1158,7 +1158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_IsActive
@@ -1166,19 +1166,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1361264557881328, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1440815593833642, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1609007915154802, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1874023299526932, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4166463531722480, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
       propertyPath: m_RootOrder
@@ -1350,6 +1350,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 660672629}
     m_Modifications:
+    - target: {fileID: 5360414358058068310, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361410080743356092, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361462290811614114, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5361462290811614114, guid: dd1a994d3da02f849a43b118a42a5494,
         type: 3}
       propertyPath: m_IsActive
@@ -1430,6 +1445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LJB left
       objectReference: {fileID: 0}
+    - target: {fileID: 8669793115107032285, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8907126670232200076, guid: dd1a994d3da02f849a43b118a42a5494, type: 3}
     - {fileID: 7056591253024616063, guid: dd1a994d3da02f849a43b118a42a5494, type: 3}
@@ -1446,7 +1466,7 @@ GameObject:
   - component: {fileID: 456489097}
   - component: {fileID: 456489099}
   - component: {fileID: 456489098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blade1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,7 +1795,7 @@ GameObject:
   - component: {fileID: 599776668}
   - component: {fileID: 599776670}
   - component: {fileID: 599776669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2104,7 +2124,7 @@ GameObject:
   - component: {fileID: 660672629}
   - component: {fileID: 660672631}
   - component: {fileID: 660672630}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Console_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2484,7 +2504,7 @@ GameObject:
   - component: {fileID: 710439202}
   - component: {fileID: 710439204}
   - component: {fileID: 710439203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dash (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2580,7 @@ GameObject:
   - component: {fileID: 714895824}
   - component: {fileID: 714895825}
   - component: {fileID: 714895826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2631,7 +2651,7 @@ GameObject:
   - component: {fileID: 728639548}
   - component: {fileID: 728639550}
   - component: {fileID: 728639549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2773,6 +2793,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1433870142484594919, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1433870142484594919, guid: 4496d9755106c4943be25fc5e74b0dd1,
         type: 3}
       propertyPath: m_IsActive
@@ -2785,8 +2815,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5e6cf0016be0c91449ce6c1010a04ad7, type: 2}
     - target: {fileID: -552802618325763369, guid: 4496d9755106c4943be25fc5e74b0dd1,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -552802618325763369, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65702495048144492, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 65702495048144492, guid: 4496d9755106c4943be25fc5e74b0dd1,
         type: 3}
@@ -2798,16 +2838,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: ODM Gear
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150794553745047297, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5320899304854148029, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5320899304854148029, guid: 4496d9755106c4943be25fc5e74b0dd1,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315391457476664249, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8048678139188318730, guid: 4496d9755106c4943be25fc5e74b0dd1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5e6cf0016be0c91449ce6c1010a04ad7, type: 2}
+    - target: {fileID: 8450741445461484544, guid: 4496d9755106c4943be25fc5e74b0dd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4496d9755106c4943be25fc5e74b0dd1, type: 3}
 --- !u!1 &815818803
@@ -2821,7 +2886,7 @@ GameObject:
   - component: {fileID: 815818804}
   - component: {fileID: 815818806}
   - component: {fileID: 815818805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dash (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2992,7 +3057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 952003404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword AOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3027,7 +3092,7 @@ GameObject:
   - component: {fileID: 962235338}
   - component: {fileID: 962235340}
   - component: {fileID: 962235339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Console_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3121,7 +3186,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3333,7 +3398,7 @@ GameObject:
   - component: {fileID: 980939726}
   - component: {fileID: 980939725}
   - component: {fileID: 980939724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3682,7 +3747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095397742}
   - component: {fileID: 1095397743}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'lightning javelin '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3732,7 +3797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097119530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4089,7 +4154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1250476947}
   - component: {fileID: 1250476948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LJ
   m_TagString: NoMoveWhenShoot
   m_Icon: {fileID: 0}
@@ -4150,7 +4215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300419594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AT left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4395,7 +4460,7 @@ GameObject:
   - component: {fileID: 1403417605}
   - component: {fileID: 1403417607}
   - component: {fileID: 1403417606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4460,7 +4525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1449681675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScreenPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4505,6 +4570,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 962235338}
     m_Modifications:
+    - target: {fileID: 5360414358058068310, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361410080743356092, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361462290811614114, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5361462290811614114, guid: dd1a994d3da02f849a43b118a42a5494,
         type: 3}
       propertyPath: m_IsActive
@@ -4584,6 +4664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LJB rght
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669793115107032285, guid: dd1a994d3da02f849a43b118a42a5494,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8907126670232200076, guid: dd1a994d3da02f849a43b118a42a5494, type: 3}
@@ -4705,7 +4790,7 @@ GameObject:
   - component: {fileID: 1558589971}
   - component: {fileID: 1558589973}
   - component: {fileID: 1558589972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScreenPaused
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4782,7 +4867,7 @@ GameObject:
   - component: {fileID: 1630031902}
   - component: {fileID: 1630031904}
   - component: {fileID: 1630031903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4863,7 +4948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645089394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CamPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +4980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648568611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AT right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4928,7 +5013,7 @@ GameObject:
   - component: {fileID: 1711316961}
   - component: {fileID: 1711316963}
   - component: {fileID: 1711316962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blade1.001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5113,7 +5198,7 @@ GameObject:
   - component: {fileID: 1808695067}
   - component: {fileID: 1808695069}
   - component: {fileID: 1808695068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5194,7 +5279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829793053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: guntip 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5324,7 +5409,7 @@ GameObject:
   - component: {fileID: 1969820504}
   - component: {fileID: 1969820506}
   - component: {fileID: 1969820505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5495,7 +5580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118893035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: guntip 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5786,7 +5871,7 @@ PrefabInstance:
     - target: {fileID: 7569578751195575294, guid: 1fad835bc3f8d624cb8de51e256afc21,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7569578751195575294, guid: 1fad835bc3f8d624cb8de51e256afc21,
         type: 3}

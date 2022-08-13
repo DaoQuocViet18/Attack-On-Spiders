@@ -41,7 +41,7 @@ public class Enemy_Attack : MonoBehaviour
             {
                 Vector3 direction = Player.transform.position - transform.position;
 
-                Instantiate(Weapon[0], transform.position + new Vector3(0, 3, 0), transform.rotation);
+                Instantiate(Weapon[0], transform.position + transform.up * 3f, transform.rotation);
                  NumberWeapon++;
                 time = 0;
             }
