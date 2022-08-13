@@ -5,13 +5,13 @@ using UnityEngine;
 public class SpiderMove : MonoBehaviour
 {
     [Header("Movement")]
-    public float _speed = 3f;
-    public float smoothness = 5f;
-    public int raysNb = 8;
-    public float halfRange = 0.5f;
-    public float raysEccentricity = 0.2f;
-    public float outerRaysOffset = 2f;
-    public float innerRaysOffset = 25f;
+    [SerializeField] float _speed = 3f;
+    [SerializeField] float smoothness = 5f;
+    [SerializeField] int raysNb = 8;
+    [SerializeField] float halfRange = 0.5f;
+    [SerializeField] float raysEccentricity = 0.2f;
+    [SerializeField] float outerRaysOffset = 2f;
+    [SerializeField] float innerRaysOffset = 25f;
 
     private Vector3 velocity;
     private Vector3 lastVelocity;
@@ -33,6 +33,7 @@ public class SpiderMove : MonoBehaviour
 
     [Header("Attack")]
     PlayerMovement Player;
+    [SerializeField] float playerHeight;
 
     private void Awake()
     {
@@ -60,7 +61,12 @@ public class SpiderMove : MonoBehaviour
 
 
         Vector3 direction = Player.transform.position - transform.position;
-        if (direction.magnitude > 15)
+
+        if (direction.magnitude < 15 && transform.position.y < 2)
+        {
+            transform.position += direction.normalized * 1f * _speed * Time.fixedDeltaTime;
+        }
+        else if (direction.magnitude > 15)
         {
             if (IsWandering == false)
                 StartCoroutine(Wander());

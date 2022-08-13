@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 3925497248649236310}
   - component: {fileID: 6371939813801609229}
   - component: {fileID: 1214089463572215616}
+  - component: {fileID: 8397819726081350541}
   - component: {fileID: 4386473202710168133}
   m_Layer: 0
   m_Name: Spider_Current
@@ -1243,6 +1244,10 @@ MonoBehaviour:
   outerRaysOffset: 12
   innerRaysOffset: 150
   RotationSpeed: 1.5
+  IsItPlane:
+    serializedVersion: 2
+    m_Bits: 64
+  playerHeight: 0.5
 --- !u!135 &3925497248649236310
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1284,6 +1289,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de503c67e21f164db2ba4e363128acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8397819726081350541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199828607513420841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff6f75f7516bbb44b1c37b257f301dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Curpse: {fileID: 1427499900135295917, guid: 95018766b4abefb4ebeaa0f86ead03cd, type: 3}
 --- !u!114 &4386473202710168133
 MonoBehaviour:
   m_ObjectHideFlags: 0

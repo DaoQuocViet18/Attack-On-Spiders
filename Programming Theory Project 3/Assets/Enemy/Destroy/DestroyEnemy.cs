@@ -18,18 +18,14 @@ public class DestroyEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= TimeDeadline)
-        {
-            Destroy(gameObject);
-        }
+        Damage();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Spider_Current(Clone)")
+        if (collision.gameObject.name == "Damage(Clone)" || collision.gameObject.name == "Player")
         {
             SpawnScript.Change = 1;
-            Destroy(collision.gameObject);
 
             GameObject ObjectCurpse = Instantiate(Curpse);
             ObjectCurpse.transform.position = collision.transform.position;
@@ -37,6 +33,17 @@ public class DestroyEnemy : MonoBehaviour
             
 
             Destroy(gameObject);
+        }
+    }
+
+    void Damage()
+    {
+        if (gameObject.name == "Damage(Clone)")
+        {
+            if (Time.time >= TimeDeadline)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

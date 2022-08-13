@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Attack : MonoBehaviour
 {
     [SerializeField] GameObject[] Weapon;
-    PlayerMovement Player;
+    Transform Player;
     Rigidbody WeaponRb;
     Vector3 direction;
     [SerializeField] float timeShoot = 0;
@@ -21,7 +21,7 @@ public class Enemy_Attack : MonoBehaviour
     void Start()
     {
         WeaponRb = GetComponent<Rigidbody>();
-        Player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        Player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -39,8 +39,10 @@ public class Enemy_Attack : MonoBehaviour
 
             if (NumberWeapon < 1 && Time.time >= timeShoot)
             {
+                Vector3 direction = Player.transform.position - transform.position;
+
                 Instantiate(Weapon[0], transform.position + new Vector3(0, 3, 0), transform.rotation);
-                NumberWeapon++;
+                 NumberWeapon++;
                 time = 0;
             }
         }
