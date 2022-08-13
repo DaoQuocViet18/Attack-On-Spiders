@@ -5,7 +5,8 @@ using UnityEngine;
 public class DestroyEnemy : MonoBehaviour
 {
     [SerializeField] GameObject Curpse;
-
+    [SerializeField] ParticleSystem bisExplosion_02;
+    [SerializeField] GameObject DamageShpere;
     private Spawn SpawnScript;
     private float TimeDeadline;
 
@@ -23,7 +24,7 @@ public class DestroyEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Damage(Clone)" || collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Damage(Clone)")
         {
             SpawnScript.Change = 1;
 
@@ -31,6 +32,24 @@ public class DestroyEnemy : MonoBehaviour
             ObjectCurpse.transform.position = collision.transform.position;
             ObjectCurpse.transform.rotation = collision.transform.rotation;
             
+
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.name == "Player" && gameObject.name == "Spider_Current(Clone)")
+        {
+            ParticleSystem ObjectBisExplosion = Instantiate(bisExplosion_02);
+            ObjectBisExplosion.transform.position = transform.position;
+            ObjectBisExplosion.Play();
+
+            SpawnScript.Change = 1;
+
+            GameObject ObjectCurpse = Instantiate(Curpse);
+            ObjectCurpse.transform.position = collision.transform.position;
+            ObjectCurpse.transform.rotation = collision.transform.rotation;
+
+            GameObject ObjectDamege = Instantiate(DamageShpere);
+            ObjectDamege.transform.position = transform.position;
 
             Destroy(gameObject);
         }

@@ -8,14 +8,11 @@ public class Enemy_Attack : MonoBehaviour
     Transform Player;
     Rigidbody WeaponRb;
     Vector3 direction;
-    [SerializeField] float timeShoot = 0;
-    [SerializeField] float time = 0;
+    private float timeShoot = 0;
     public Vector3 dir
     {
         get { return direction; }
     }
-
-    [SerializeField] int NumberWeapon = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,19 +28,12 @@ public class Enemy_Attack : MonoBehaviour
 
         if (direction.magnitude <= 15f)
         {
-            if (time < 1)
-            {
-                timeShoot = Time.time + 2f;
-                time++;
-            }
-
-            if (NumberWeapon < 1 && Time.time >= timeShoot)
+            if (Time.time >= timeShoot)
             {
                 Vector3 direction = Player.transform.position - transform.position;
 
-                Instantiate(Weapon[0], transform.position + transform.up * 3f, transform.rotation);
-                 NumberWeapon++;
-                time = 0;
+                Instantiate(Weapon[0], transform.position + transform.up * 5f, transform.rotation);
+                timeShoot = Time.time + 3f;
             }
         }
     }

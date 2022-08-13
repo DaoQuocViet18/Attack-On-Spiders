@@ -1244,9 +1244,6 @@ MonoBehaviour:
   outerRaysOffset: 12
   innerRaysOffset: 150
   RotationSpeed: 1.5
-  IsItPlane:
-    serializedVersion: 2
-    m_Bits: 64
   playerHeight: 0.5
 --- !u!135 &3925497248649236310
 SphereCollider:
@@ -1302,6 +1299,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Curpse: {fileID: 1427499900135295917, guid: 95018766b4abefb4ebeaa0f86ead03cd, type: 3}
+  bisExplosion_02: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  DamageShpere: {fileID: 5413705172872327850, guid: ecab4b21529f8ef42b8cb5fcf520a515,
+    type: 3}
 --- !u!114 &4386473202710168133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,9 +1317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon:
   - {fileID: 7129653779707799090, guid: 1dfa41edbe539f74ab9b7927f41f4ee8, type: 3}
-  timeShoot: 0
-  time: 0
-  NumberWeapon: 0
 --- !u!1 &3199828607638547614
 GameObject:
   m_ObjectHideFlags: 0

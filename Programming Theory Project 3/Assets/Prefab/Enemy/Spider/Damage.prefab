@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Curpse: {fileID: 1427499900135295917, guid: 95018766b4abefb4ebeaa0f86ead03cd, type: 3}
+  bisExplosion_02: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  DamageShpere: {fileID: 5413705172872327850}
 --- !u!54 &7811569629691358052
 Rigidbody:
   m_ObjectHideFlags: 0
