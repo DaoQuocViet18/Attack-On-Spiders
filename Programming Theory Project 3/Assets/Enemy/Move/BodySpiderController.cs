@@ -52,6 +52,7 @@ public class BodySpiderController : MonoBehaviour
             lastVelocity = velocity;
 
         MoveLeg();
+        destroyObject();
         RotationBody();
     }
     void MoveLeg()
@@ -155,6 +156,18 @@ public class BodySpiderController : MonoBehaviour
         }
     }
 
+    void destroyObject()
+    {
+        for (int i = 0; i < nbLegs; ++i)
+        {
+            float distace = (legTargets[i].position - lastLegPositions[i]).magnitude;
+            if (distace >= 100f)
+            {
+                Debug.Log("bug have be destroy");
+                Destroy(gameObject);
+            }
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
