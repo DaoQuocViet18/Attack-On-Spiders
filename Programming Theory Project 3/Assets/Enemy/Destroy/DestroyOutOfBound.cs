@@ -8,7 +8,7 @@ public class DestroyOutOfBound : MonoBehaviour
 
     private float Xbound = 74.5f;
     private float Zbound = 74.5f;
-    private float Ybound = 0f;
+    private float Ybound = -0.2f;
 
     void Start()
     {

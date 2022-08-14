@@ -7,6 +7,8 @@ public class DestroyEnemy : MonoBehaviour
     [SerializeField] GameObject Curpse;
     [SerializeField] ParticleSystem bisExplosion_02;
     [SerializeField] GameObject DamageShpere;
+    [SerializeField] Transform Player;
+
     private Spawn SpawnScript;
     private float TimeDeadline;
 
@@ -15,6 +17,7 @@ public class DestroyEnemy : MonoBehaviour
     {
         SpawnScript = GameObject.Find("SpawnManager").GetComponent<Spawn>();
         TimeDeadline = Time.time + 0.2f;
+        Player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     private void Update()
@@ -64,5 +67,15 @@ public class DestroyEnemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    void DestroyBound()
+    {
+        float distance = (Player.transform.position - transform.position).magnitude;
+
+        //if (distance > )
+        //{
+
+        //}
     }
 }
