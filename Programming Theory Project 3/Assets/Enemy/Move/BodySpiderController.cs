@@ -166,4 +166,5 @@ public class BodySpiderController : MonoBehaviour
             Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
         }
     }
+
 }

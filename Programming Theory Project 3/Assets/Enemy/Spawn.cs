@@ -7,7 +7,7 @@ public class Spawn : MonoBehaviour
     public GameObject[] enemy;
     private float spawnDelay = 2f;
     private float spawnInterval = 1.5f;
-    private int EnemyLimit = 41;
+    private int EnemyLimit = 25;
     public int NumberEnemy = 0;
     public int NumberPoint = 0;
     Vector3 spawnLocation;
