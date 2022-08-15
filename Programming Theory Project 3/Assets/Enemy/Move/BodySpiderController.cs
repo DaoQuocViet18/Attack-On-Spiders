@@ -24,6 +24,8 @@ public class BodySpiderController : MonoBehaviour
 
     private float velocityMultiplier = 15f;
 
+    private Spawn SpawnScript;
+
     void Start()
     {
         lastBodyUp = transform.up;
@@ -39,6 +41,8 @@ public class BodySpiderController : MonoBehaviour
             legMoving[i] = false;
         }
         lastBodyPos = transform.position;
+
+        SpawnScript = GameObject.Find("SpawnManager").GetComponent<Spawn>();
     }
 
     void FixedUpdate()
@@ -164,6 +168,7 @@ public class BodySpiderController : MonoBehaviour
             if (distace >= 100f)
             {
                 Debug.Log("bug have be destroy");
+                SpawnScript.Change = 1;
                 Destroy(gameObject);
             }
         }
