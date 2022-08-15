@@ -5,8 +5,11 @@ using UnityEngine;
 public class ControllerGunLJ : MonoBehaviour
 {
     GunLJ gunlj;
-    [SerializeField] private Transform[] Guntip;
-    [SerializeField] private GameObject[] LJB;
+    [SerializeField] Transform[] Guntip;
+    [SerializeField] GameObject[] LJB;
+    [SerializeField] Animator animator;
+
+
     
     int numberGrapplingGun = 1;
     WeaponsSwitching WS;
@@ -37,13 +40,16 @@ public class ControllerGunLJ : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
                     {
+                        StartCoroutine(AnimationShootRight());
                         LJB[0].SetActive(false);
                         gunlj.attackpoint = Guntip[0];
                         gunlj.Shoot();
                         numberGrapplingGun++;
+                        
                     }
                     else if (!gunlj.isReloading)
                     {
+                        
                         LJB[1].SetActive(true);
                     }
                     break;
@@ -53,6 +59,7 @@ public class ControllerGunLJ : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0) && gunlj.readyToThrow && gunlj.maxAmmo > 0)
                     {
+                        StartCoroutine(AnimationShootLeft());
                         LJB[1].SetActive(false);
                         gunlj.attackpoint = Guntip[1];
                         gunlj.Shoot();
@@ -65,5 +72,19 @@ public class ControllerGunLJ : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    IEnumerator AnimationShootRight()
+    {
+        animator.SetBool("GunLJRight", true);
+        yield return new WaitForSeconds(1 - 0.25f);
+        animator.SetBool("GunLJRight", false);
+    }
+
+    IEnumerator AnimationShootLeft()
+    {
+        animator.SetBool("GunLJLeft", true);
+        yield return new WaitForSeconds(1 - 0.25f);
+        animator.SetBool("GunLJLeft", false);
     }
 }
