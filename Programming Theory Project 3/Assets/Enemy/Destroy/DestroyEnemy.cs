@@ -5,12 +5,15 @@ using UnityEngine;
 public class DestroyEnemy : MonoBehaviour
 {
     [SerializeField] GameObject Curpse;
+    [SerializeField] GameObject Curpse_static;
     [SerializeField] ParticleSystem bisExplosion_02;
     [SerializeField] GameObject DamageShpere;
-    [SerializeField] Transform Player;
+    Transform Player;
 
     private Spawn SpawnScript;
     private float TimeDeadline;
+
+    public float CurrentHealth = 20;
 
     // Start is called before the first frame update
     void Start()
