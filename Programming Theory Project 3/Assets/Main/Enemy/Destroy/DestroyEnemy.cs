@@ -11,6 +11,7 @@ public class DestroyEnemy : MonoBehaviour
     Transform Player;
 
     private Spawn SpawnScript;
+    private GameManager gameManager;
     private float TimeDeadline;
 
     public float CurrentHealth = 20;
@@ -21,6 +22,7 @@ public class DestroyEnemy : MonoBehaviour
         SpawnScript = GameObject.Find("SpawnManager").GetComponent<Spawn>();
         TimeDeadline = Time.time + 0.2f;
         Player = GameObject.Find("Player").GetComponent<Transform>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -37,8 +39,8 @@ public class DestroyEnemy : MonoBehaviour
             GameObject ObjectCurpse = Instantiate(Curpse);
             ObjectCurpse.transform.position = collision.transform.position;
             ObjectCurpse.transform.rotation = collision.transform.rotation;
-            
 
+            gameManager.UpdateScore(1);
             Destroy(gameObject);
         }
 
@@ -70,15 +72,5 @@ public class DestroyEnemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    void DestroyBound()
-    {
-        float distance = (Player.transform.position - transform.position).magnitude;
-
-        //if (distance > )
-        //{
-
-        //}
     }
 }

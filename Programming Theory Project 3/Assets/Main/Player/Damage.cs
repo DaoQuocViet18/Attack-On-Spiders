@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Damage : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
     }
 
+    private void Update()
+    {
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Sword_Of_Spider(Clone)" && gameObject.name != "Shield_Player")
@@ -28,7 +34,19 @@ public class Damage : MonoBehaviour
         if (collision.gameObject.name == "Damage(Clone)")
         {
             currentHealth -= damageExplosion/2;
-            healthBar.setHealth(currentHealth);
+            healthBar.setHealth(currentHealth);            
         }
+
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(End());
+        }
+    }
+
+    IEnumerator End()
+    {
+        //Time.timeScale = 0;
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 }
