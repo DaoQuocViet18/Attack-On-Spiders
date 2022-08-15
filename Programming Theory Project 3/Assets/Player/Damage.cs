@@ -19,7 +19,7 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Sword_Of_Spider(Clone)")
+        if (collision.gameObject.name == "Sword_Of_Spider(Clone)" && gameObject.name != "Shield_Player")
         {
             currentHealth -= damageSword;
             healthBar.setHealth(currentHealth);

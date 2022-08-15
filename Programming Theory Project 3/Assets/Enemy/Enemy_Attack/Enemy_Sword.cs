@@ -31,7 +31,7 @@ public class Enemy_Sword : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player" || collision.gameObject.CompareTag("Untagged") || collision.gameObject.gameObject.name == "Shield_Player")
+        if (collision.gameObject.name == "Shield_Player" || collision.gameObject.name == "Player" || collision.gameObject.CompareTag("Untagged"))
         {
             Destroy(gameObject);
         }
